@@ -1,0 +1,100 @@
+import Button from "../ui/Button";
+import logo from "../../assets/images/logo.png";
+import WhatsappIcon from "../../assets/icons/WhatsappIcon";
+import { Menu } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+
+import { ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useStore } from "../../store/useStore";
+
+const Header = () => {
+  const { openCart, toggleMenu } = useStore();
+
+  const count = useStore(
+    (state) =>
+      state.cartItems.reduce((total, item) => total + item.quantity, 0) || 0,
+  );
+
+  const location = useLocation();
+
+  const [scrolled, setScrolled] = useState(false);
+
+  const isMenuPage = location.pathname.startsWith("/menu");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header id="siteHeader" className={scrolled ? "scrolled" : ""}>
+      <div className="nav-inner container">
+        <div className="brand">
+          <Link to="/">
+            <img className="brand-logo" src={logo} alt="أبو السعود" />
+          </Link>
+          <span className="brand-est">EST. 1896</span>
+        </div>
+
+        <nav className="links">
+          {isMenuPage ? (
+            <Link to="/">الرئيسية</Link>
+          ) : (
+            <>
+              <a href="#heritage">إرثنا</a>
+              <a href="#signature">طبقنا المميز</a>
+              <a href="#contact">تواصل معنا</a>
+              <Link to="/menu">المنيو</Link>
+            </>
+          )}
+        </nav>
+
+        <div className="nav-actions">
+          <Button
+            className="icon-btn"
+            id="cartBtn"
+            aria-label="سلة الطلبات"
+            onClick={openCart}
+          >
+            <ShoppingCart />
+            {count > 0 && (
+              <span className="badge" id="cartBadge">
+                {count}
+              </span>
+            )}
+          </Button>
+          <a
+            href="https://wa.me/201070100122"
+            id="waOrderBtn"
+            target="_blank"
+            rel="noopener"
+            className="cta-btn cta-solid wa-link"
+          >
+            <WhatsappIcon />
+            <span className="cta-label">اطلب عبر واتساب</span>
+          </a>
+          <Button
+            className="menu-toggle"
+            id="menuToggle"
+            aria-label="القائمة"
+            onClick={() => toggleMenu()}
+          >
+            <Menu className="text-[#b8862f]" />
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
