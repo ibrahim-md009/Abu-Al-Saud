@@ -1,7 +1,9 @@
 import Hero from "./Hero";
 import Hirtage from "./Hirtage";
+import BestSeller from "./BestSeller";
 import Signature from "./Signature";
 import Why from "./Why";
+
 import Marquee from "../../components/ui/Marquee";
 
 const index = () => {
@@ -10,6 +12,7 @@ const index = () => {
       <Hero />
       <Marquee />
       <Hirtage />
+      <BestSeller />
       <Signature />
       <Why />
     </>

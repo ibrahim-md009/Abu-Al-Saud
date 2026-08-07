@@ -110,7 +110,7 @@ const CheckoutSheet = () => {
 
     msg += `\n *الإجمالي:* ${total} ج.م`;
 
-    const whatsappPhone = "972567574848";
+    const whatsappPhone = "201070100122";
     const url = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(msg)}`;
 
     window.open(url, "_blank");

@@ -5,6 +5,7 @@ export const useStore = create(
   persist(
     (set) => ({
       cartItems: [],
+      favItems: [],
 
       selectedProduct: null,
       isMenuOpen: false,
@@ -68,10 +69,33 @@ export const useStore = create(
             (item) => item.id !== product.id || item.size !== product.size,
           ),
         })),
+
+      toggleFav: (product) =>
+        set((state) => {
+          const isExisted = state.favItems.some(
+            (item) => item.id === product.id,
+          );
+
+          if (isExisted) {
+            return {
+              favItems: state.favItems.filter((item) => item.id !== product.id),
+            };
+          }
+
+          return {
+            favItems: [...state.favItems, product],
+          };
+        }),
+
+      clearFav: () => set({ favItems: [] }),
     }),
+
     {
       name: "cart-storage",
-      partialize: (state) => ({ cartItems: state.cartItems }),
+      partialize: (state) => ({
+        cartItems: state.cartItems,
+        favItems: state.favItems,
+      }),
     },
   ),
 );

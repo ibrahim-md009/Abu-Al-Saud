@@ -41,7 +41,7 @@
       "id": "kunafa-nabulsia",
       "subCategoryId": "kunafa",
       "name": "نابلسية",
-      "image": "../../public/images/products/kunafa/01.webp",
+      "image": "/images/products/kunafa/01.webp",
       "prices": [
         { "name": "كيلو", "price": 500 },
         { "name": "نص كيلو", "price": 250 },
@@ -55,7 +55,7 @@
       "id": "kunafa-arabia",
       "subCategoryId": "kunafa",
       "name": "عربية",
-      "image": "../../public/images/products/kunafa/02.webp",
+      "image": "/images/products/kunafa/02.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -69,7 +69,7 @@
       "id": "kunafa-istanbulia",
       "subCategoryId": "kunafa",
       "name": "اسطنبولية",
-      "image": "../../public/images/products/kunafa/03.webp",
+      "image": "/images/products/kunafa/03.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -82,7 +82,7 @@
       "id": "kunafa-istanbulia-arabia",
       "subCategoryId": "kunafa",
       "name": "اسطنبولية وعربية مشكل",
-      "image": "../../public/images/products/kunafa/04.webp",
+      "image": "/images/products/kunafa/04.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -95,7 +95,7 @@
       "id": "kunafa-istanbulia-nabulsia",
       "subCategoryId": "kunafa",
       "name": "اسطنبولية ونابلسية مشكل",
-      "image": "../../public/images/products/kunafa/05.webp",
+      "image": "/images/products/kunafa/05.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -108,7 +108,7 @@
       "id": "kunafa-nabulsia-arabia",
       "subCategoryId": "kunafa",
       "name": "نابلسية وعربية مشكل",
-      "image": "../../public/images/products/kunafa/06.webp",
+      "image": "/images/products/kunafa/06.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -121,7 +121,7 @@
       "id": "kunafa-plate-nabulsia",
       "subCategoryId": "kunafa",
       "name": "صحن نابلسية",
-      "image": "../../public/images/products/kunafa/07.webp",
+      "image": "/images/products/kunafa/07.webp",
       "prices": [{ "name": "single", "price": 0 }],
       "desc": "وجبة فردية سخنة من الكنافة النابلسية الغنية بالجبن والسمن البلدي.",
       "available": true
@@ -130,7 +130,7 @@
       "id": "kunafa-plate-arabia",
       "subCategoryId": "kunafa",
       "name": "صحن عربية",
-      "image": "../../public/images/products/kunafa/08.webp",
+      "image": "/images/products/kunafa/08.webp",
       "prices": [{ "name": "single", "price": 0 }],
       "desc": "صحن فردي من الكنافة العربية الفاخرة المحشوة بالحلبي والمكسرات.",
       "available": true
@@ -139,7 +139,7 @@
       "id": "kunafa-plate-istanbulia",
       "subCategoryId": "kunafa",
       "name": "صحن اسطنبولية",
-      "image": "../../public/images/products/kunafa/09.webp",
+      "image": "/images/products/kunafa/09.webp",
       "prices": [{ "name": "single", "price": 0 }],
       "desc": "صحن فردي مميز غني بالقشطة البلدية والمكسرات.",
       "available": true
@@ -148,7 +148,7 @@
       "id": "kunafa-plate-nabulsia-arabia",
       "subCategoryId": "kunafa",
       "name": "صحن نابلسية وعربية",
-      "image": "../../public/images/products/kunafa/06.webp",
+      "image": "/images/products/kunafa/06.webp",
       "prices": [{ "name": "single", "price": 0 }],
       "desc": "صحن مشكل فردي للتذوق يجمع طعم النابلسية والعربية.",
       "available": true
@@ -157,7 +157,7 @@
       "id": "kunafa-plate-istanbulia-arabia",
       "subCategoryId": "kunafa",
       "name": "صحن اسطنبولية وعربية",
-      "image": "../../public/images/products/kunafa/04.webp",
+      "image": "/images/products/kunafa/04.webp",
       "prices": [{ "name": "single", "price": 0 }],
       "desc": "توليفة ممتازة من القشطة والمكسرات في صحن واحد.",
       "available": true
@@ -166,7 +166,7 @@
       "id": "kunafa-plate-istanbulia-nabulsia",
       "subCategoryId": "kunafa",
       "name": "صحن اسطنبولية ونابلسية",
-      "image": "../../public/images/products/kunafa/05.webp",
+      "image": "/images/products/kunafa/05.webp",
       "prices": [{ "name": "single", "price": 0 }],
       "desc": "صحن فردي يجمع القشطة الذائبة مع الجبنة العكاوية الساخنة.",
       "available": true
@@ -175,7 +175,7 @@
       "id": "kunafa-bourma-qashta",
       "subCategoryId": "kunafa",
       "name": "بورمة قشطة",
-      "image": "../../public/images/products/kunafa/07.webp",
+      "image": "/images/products/kunafa/07.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -189,7 +189,7 @@
       "id": "kunafa-kallaj",
       "subCategoryId": "kunafa",
       "name": "كلاج",
-      "image": "../../public/images/products/kunafa/08.webp",
+      "image": "/images/products/kunafa/08.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -202,7 +202,7 @@
       "id": "kunafa-warbat-qashta",
       "subCategoryId": "kunafa",
       "name": "وربات قشطة",
-      "image": "../../public/images/products/kunafa/09.webp",
+      "image": "/images/products/kunafa/09.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -216,7 +216,7 @@
       "id": "baklava-mushakal-habli",
       "subCategoryId": "baklava-pistachio",
       "name": "مشكل حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/01.webp",
+      "image": "/images/products/baklava/baklava-pistachio/01.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -230,7 +230,7 @@
       "id": "baklava-mushakal-halabi-almond",
       "subCategoryId": "baklava-pistachio",
       "name": "مشكل حلبي مع لوز",
-      "image": "../../public/images/products/baklava/baklava-pistachio/02.webp",
+      "image": "/images/products/baklava/baklava-pistachio/02.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -243,7 +243,7 @@
       "id": "baklava-biloria-red",
       "subCategoryId": "baklava-pistachio",
       "name": "بلوريا حمراء",
-      "image": "../../public/images/products/baklava/baklava-pistachio/03.webp",
+      "image": "/images/products/baklava/baklava-pistachio/03.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -257,7 +257,7 @@
       "id": "baklava-biloria-white",
       "subCategoryId": "baklava-pistachio",
       "name": "بلوريا بيضاء",
-      "image": "../../public/images/products/baklava/baklava-pistachio/04.webp",
+      "image": "/images/products/baklava/baklava-pistachio/04.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -270,7 +270,7 @@
       "id": "baklava-surah-pistachio",
       "subCategoryId": "baklava-pistachio",
       "name": "صره فستق حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/05.webp",
+      "image": "/images/products/baklava/baklava-pistachio/05.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -283,7 +283,7 @@
       "id": "baklava-asya-pistachio",
       "subCategoryId": "baklava-pistachio",
       "name": "اسيا فستق حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/06.webp",
+      "image": "/images/products/baklava/baklava-pistachio/06.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -296,7 +296,7 @@
       "id": "baklava-kol-washkor-pistachio",
       "subCategoryId": "baklava-pistachio",
       "name": "كل واشكر فستق حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/07.webp",
+      "image": "/images/products/baklava/baklava-pistachio/07.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -309,7 +309,7 @@
       "id": "baklava-dolma-pistachio",
       "subCategoryId": "baklava-pistachio",
       "name": "دولمة فستق حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/08.webp",
+      "image": "/images/products/baklava/baklava-pistachio/08.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -322,7 +322,7 @@
       "id": "baklava-asawer-elsit-pistachio",
       "subCategoryId": "baklava-pistachio",
       "name": "اساور الست فستق حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/09.webp",
+      "image": "/images/products/baklava/baklava-pistachio/09.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -335,7 +335,7 @@
       "id": "baklava-senyora-pistachio",
       "subCategoryId": "baklava-pistachio",
       "name": "سنيورة فستق حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/10.webp",
+      "image": "/images/products/baklava/baklava-pistachio/10.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -348,7 +348,7 @@
       "id": "baklava-pistachio-abo-alsoud",
       "subCategoryId": "baklava-pistachio",
       "name": "بستاشيو ابو السعود",
-      "image": "../../public/images/products/baklava/baklava-pistachio/11.webp",
+      "image": "/images/products/baklava/baklava-pistachio/11.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -362,7 +362,7 @@
       "id": "baklava-lokum-pistachio",
       "subCategoryId": "baklava-pistachio",
       "name": "لوكم فسدق حلبي",
-      "image": "../../public/images/products/baklava/baklava-pistachio/12.webp",
+      "image": "/images/products/baklava/baklava-pistachio/12.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -376,7 +376,7 @@
       "id": "baklava-mushakal-almond",
       "subCategoryId": "baklava-almond",
       "name": "مشكل لوز",
-      "image": "../../public/images/products/baklava-almond/01.webp",
+      "image": "/images/products/baklava-almond/01.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -534,7 +534,7 @@
       "id": "misc-maamoul-dates",
       "subCategoryId": "oriental-misc",
       "name": "معمول عجوة",
-      "image": "../../public/images/products/oriental-misc/01.webp",
+      "image": "/images/products/oriental-misc/01.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -548,7 +548,7 @@
       "id": "misc-maamoul-walnut",
       "subCategoryId": "oriental-misc",
       "name": "معمول جوز",
-      "image": "../../public/images/products/oriental-misc/02.webp",
+      "image": "/images/products/oriental-misc/02.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -561,7 +561,7 @@
       "id": "misc-ghraybeh",
       "subCategoryId": "oriental-misc",
       "name": "غريبة",
-      "image": "../../public/images/products/oriental-misc/03.webp",
+      "image": "/images/products/oriental-misc/03.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -575,7 +575,7 @@
       "id": "namoura-butter",
       "subCategoryId": "namoura",
       "name": "نمورة بالزبدة البلدي",
-      "image": "../../public/images/products/namoura/01.webp",
+      "image": "/images/products/namoura/01.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },
@@ -589,7 +589,7 @@
       "id": "namoura-almond",
       "subCategoryId": "namoura",
       "name": "نمورة محشية لوز",
-      "image": "../../public/images/products/namoura/02.webp",
+      "image": "/images/products/namoura/02.webp",
       "prices": [
         { "name": "كيلو", "price": 0 },
         { "name": "نص كيلو", "price": 0 },

@@ -2,7 +2,7 @@ import logo from "../../assets/images/logo.png";
 import { Link } from "react-router";
 
 import { ArrowLeft } from "lucide-react";
-// import { ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -21,7 +21,7 @@ const Hero = () => {
 
         <div className="hero-actions">
           <Link to="/menu" className="cta-ghost">
-            تصفّح القائمة
+            تصفّح المنيو
             <ArrowLeft />
           </Link>
           <a href="#heritage" className="cta-ghost">
@@ -31,7 +31,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* <div className="scroll-hint">
+      <div className="scroll-hint">
         <a
           href="#menu"
           className="scroll-arrow"
@@ -39,7 +39,7 @@ const Hero = () => {
         >
           <ArrowDown />
         </a>
-      </div> */}
+      </div>
     </section>
   );
 };

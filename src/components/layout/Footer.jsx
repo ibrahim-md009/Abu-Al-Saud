@@ -1,6 +1,7 @@
 import logo from "../../assets/images/logo.png";
 import FacebookIcon from "../../assets/icons/FacebookIcon";
 import InstagramIcon from "../../assets/icons/InstagramIcon";
+
 import FadeAnimation from "../../components/ui/FadeAnimation";
 
 const Footer = () => {

@@ -6,7 +6,6 @@ import data from "../../data/products.json";
 const Signature = () => {
   const { openSizeSheet } = useStore();
   const eyebrow = data.products.find((p) => p.tag === "توقيعنا الخاص");
-
   return (
     <section className="on-cream signature" id="signature">
       <div className="sig-watermark">كنافة</div>

@@ -1,6 +1,5 @@
 import Button from "../ui/Button";
 import logo from "../../assets/images/logo.png";
-import WhatsappIcon from "../../assets/icons/WhatsappIcon";
 import { Menu } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -73,16 +72,7 @@ const Header = () => {
               </span>
             )}
           </Button>
-          <a
-            href="https://wa.me/201070100122"
-            id="waOrderBtn"
-            target="_blank"
-            rel="noopener"
-            className="cta-btn cta-solid wa-link"
-          >
-            <WhatsappIcon />
-            <span className="cta-label">اطلب عبر واتساب</span>
-          </a>
+
           <Button
             className="menu-toggle"
             id="menuToggle"

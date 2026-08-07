@@ -7,7 +7,7 @@ import Button from "../components/ui/Button";
 import { useStore } from "../store/useStore";
 
 const Menu = () => {
-  const { openSizeSheet } = useStore();
+  const { openSizeSheet, toggleFav, favItems = [] } = useStore();
 
   const [activeMenu, setActiveMenu] = useState(
     data.mainCategories[0]?.id || "oriental",
@@ -83,6 +83,10 @@ const Menu = () => {
 
         <div className="menu-list" id="menuGrid">
           {filteredProducts.map((p) => {
+            const isFav = (favItems || []).some(
+              (item) => String(item.id) === String(p.id),
+            );
+
             return (
               <div key={p.id} className="menu-row show">
                 <div className="row-media">
@@ -105,7 +109,8 @@ const Menu = () => {
 
                   <div className="row-actions">
                     <Button
-                      className="icon-sm fav-btn"
+                      className={`icon-sm fav-btn ${isFav ? "active" : ""}`}
+                      onClick={() => toggleFav(p)}
                       aria-label="أضف للمفضلة"
                     >
                       <Heart />
