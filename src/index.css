@@ -1404,7 +1404,7 @@ footer .container {
   gap: 18px;
   white-space: nowrap;
   width: max-content;
-  animation: marqueeScroll 32s linear infinite;
+  animation: marqueeScroll 90s linear infinite;
   font-family: "Aref Ruqaa", serif;
   font-size: 1.05rem;
   color: var(--gold-soft);
@@ -1419,6 +1419,6 @@ footer .container {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(50%);
   }
 }
