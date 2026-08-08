@@ -8,11 +8,12 @@ import WhatsappIcon from "../../assets/icons/WhatsappIcon";
 import FavList from "../../features/favList";
 
 const NAV_LINKS = [
+  { href: "/", label: "الرئيسية" },
   { href: "/#heritage", label: "إرثنا" },
-  { href: "/menu", label: "المنيو" },
   { href: "/#signature", label: "طبقنا المميز" },
   { href: "/#menu", label: "الأكثر مبيعا" },
   { href: "/#contact", label: "تواصل معنا" },
+  { href: "/menu", label: "المنيو" },
 ];
 
 const SOCIAL_LINKS = [

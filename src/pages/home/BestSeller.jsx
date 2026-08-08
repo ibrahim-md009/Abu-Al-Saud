@@ -1,5 +1,5 @@
 import FadeAnimation from "../../components/ui/FadeAnimation";
-import data from "../../data/products.json";
+import { useData } from "../../store/useData";
 import Button from "../../components/ui/Button";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,7 +7,9 @@ import { useState } from "react";
 import Product from "../../components/ui/Product";
 
 const BestSeller = () => {
-  const bestSeller = data.products.filter((p) => p.tag === "الأكثر طلباً");
+  const { products } = useData();
+
+  const bestSeller = products.filter((p) => p.tag === "الأكثر طلباً");
 
   const [visibleCount, serVisibleCount] = useState(5);
 

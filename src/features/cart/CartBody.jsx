@@ -5,6 +5,7 @@ import Button from "../../components/ui/Button";
 
 const CartBody = () => {
   const { cartItems, closeCart, updateQuantity, delProduct } = useStore();
+
   return (
     <div className="drawer-body" id="cartList">
       {cartItems.length === 0 ? (
@@ -32,33 +33,29 @@ const CartBody = () => {
         </div>
       ) : (
         <div>
-          {cartItems.map((item) => {
-            return (
-              <div key={`${item.id}-${item.size}`} className="cart-row">
-                <div className="row-info flex flex-col">
-                  <span className="row-name">
-                    {item.name} ({item.size})
-                  </span>
+          {cartItems.map((item) => (
+            <div key={`${item.id}-${item.size}`} className="cart-row">
+              <div className="row-info flex flex-col">
+                <span className="row-name">
+                  {item.name} (
+                  {typeof item.size === "object" ? item.size?.name : item.size})
+                </span>
 
-                  <span className="row-price-sm">{item.price} ج.م</span>
-                </div>
-
-                <div className="row-actions-sm">
-                  <div className="qty-stepper">
-                    <Button onClick={() => updateQuantity(item, 1)}>+</Button>
-                    <span>{item.quantity}</span>
-                    <Button onClick={() => updateQuantity(item, -1)}>-</Button>
-                  </div>
-                  <Button
-                    className="row-remove"
-                    onClick={() => delProduct(item)}
-                  >
-                    ×
-                  </Button>
-                </div>
+                <span className="row-price-sm">{item.price} ج.م</span>
               </div>
-            );
-          })}
+
+              <div className="row-actions-sm">
+                <div className="qty-stepper">
+                  <Button onClick={() => updateQuantity(item, 1)}>+</Button>
+                  <span>{item.quantity}</span>
+                  <Button onClick={() => updateQuantity(item, -1)}>-</Button>
+                </div>
+                <Button className="row-remove" onClick={() => delProduct(item)}>
+                  ×
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

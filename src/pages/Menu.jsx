@@ -1,36 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useData } from "../store/useData";
 import FadeAnimation from "../components/ui/FadeAnimation";
 import Button from "../components/ui/Button";
 import Product from "../components/ui/Product";
-import { collection, onSnapshot } from "firebase/firestore";
-import { db } from "../services/firebase";
 
 const Menu = () => {
-  const [mainCategories, setMainCategories] = useState([]);
-  const [subCategories, setSubCategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsubProducts = onSnapshot(collection(db, "products"), (snap) => {
-      setProducts(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
-    });
-
-    const unsubMain = onSnapshot(collection(db, "mainCategories"), (snap) => {
-      setMainCategories(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
-    });
-
-    const unsubSub = onSnapshot(collection(db, "subCategories"), (snap) => {
-      setSubCategories(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
-      setLoading(false);
-    });
-
-    return () => {
-      unsubProducts();
-      unsubMain();
-      unsubSub();
-    };
-  }, []);
+  const { mainCategories, subCategories, loading, products } = useData();
 
   const [activeMenu, setActiveMenu] = useState(() => {
     return mainCategories[0]?.id || "oriental";

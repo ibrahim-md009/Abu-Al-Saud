@@ -1,15 +1,16 @@
-import { Fragment } from "react";
-import data from "../../data/products.json";
-
-const orientalSubCategoryIds = data.subCategories
-  .filter((sub) => sub.mainCategoryId === "oriental")
-  .map((sub) => sub.id);
-
-const orientalProducts = data.products.filter((p) =>
-  orientalSubCategoryIds.includes(p.subCategoryId),
-);
+import { Fragment, useMemo } from "react";
+import { useData } from "../../store/useData";
 
 const Marquee = () => {
+  const { subCategories, products } = useData();
+
+  const orientalProducts = useMemo(() => {
+    const ids = subCategories
+      .filter((sub) => sub.mainCategoryId === "oriental")
+      .map((sub) => sub.id);
+    return products.filter((p) => ids.includes(p.subCategoryId));
+  }, [products, subCategories]);
+
   return (
     <div className="marquee-wrap">
       <div className="marquee-track">

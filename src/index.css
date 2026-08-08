@@ -721,6 +721,13 @@ section {
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
+
+@media (max-width: 900px) {
+  .fav-list {
+    display: none !important;
+  }
+}
+
 .icon-sm svg {
   width: 14px;
   height: 14px;

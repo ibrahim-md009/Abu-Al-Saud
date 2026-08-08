@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useData } from "./store/useData.js";
 import Header from "./components/layout/Header";
 import Preloader from "./components/layout/Preloader";
 import Menu from "./pages/Menu";
@@ -9,8 +11,16 @@ import Cart from "./features/cart";
 import SizeSheet from "./features/cart/SizeSheet.jsx";
 import CheckoutSheet from "./features/cart/CheckoutSheet.jsx";
 import MobileMenu from "./components/layout/MobileMenu.jsx";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
+  const initListeners = useData((state) => state.initListeners);
+
+  useEffect(() => {
+    const unsubscribe = initListeners();
+    return () => unsubscribe();
+  }, [initListeners]);
+
   return (
     <>
       <Preloader />
@@ -25,6 +35,7 @@ const App = () => {
       <SizeSheet />
       <CheckoutSheet />
       <Footer />
+      <Toaster position="top-center" />
     </>
   );
 };

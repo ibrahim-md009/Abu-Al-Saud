@@ -1,6 +1,7 @@
 import Button from "./Button";
 import { Heart, ShoppingCart } from "lucide-react";
 import { useStore } from "../../store/useStore";
+import toast from "react-hot-toast";
 
 const Product = ({ p }) => {
   const { openSizeSheet, toggleFav, favItems = [], cartItems } = useStore();
@@ -19,7 +20,7 @@ const Product = ({ p }) => {
   return (
     <div className="menu-row show">
       <div className="row-media">
-        {p.image && <img src={p.image} alt={p.name} loading="lazy" />}
+        {p.imageUrl && <img src={p.imageUrl} alt={p.name} loading="lazy" />}
       </div>
 
       <div className="row-main">
@@ -48,7 +49,11 @@ const Product = ({ p }) => {
           <Button
             className={`icon-sm cart-btn icon-btn ${isExisted ? "active" : ""}`}
             aria-label="أضف للسلة"
-            onClick={() => openSizeSheet(p)}
+            onClick={() => {
+              p.available
+                ? openSizeSheet(p)
+                : toast.error(`${p.name} غير متوفرة حاليا`);
+            }}
           >
             <ShoppingCart />
             {productCount > 0 && (

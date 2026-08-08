@@ -1,11 +1,12 @@
 import FadeAnimation from "../../components/ui/FadeAnimation";
 import Button from "../../components/ui/Button";
 import { useStore } from "../../store/useStore";
-import data from "../../data/products.json";
+import { useData } from "../../store/useData";
 
 const Signature = () => {
+  const { products } = useData();
   const { openSizeSheet } = useStore();
-  const eyebrow = data.products.find((p) => p.tag === "توقيعنا الخاص");
+  const eyebrow = products.find((p) => p.tag === "توقيعنا الخاص");
   return (
     <section className="on-cream signature" id="signature">
       <div className="sig-watermark">كنافة</div>
