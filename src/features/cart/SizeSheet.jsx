@@ -1,6 +1,6 @@
-import { useStore } from "../../../store/useStore";
-import Button from "../../ui/Button";
-import FadeAnimation from "../../ui/FadeAnimation";
+import { useStore } from "../../store/useStore";
+import Button from "../../components/ui/Button";
+import FadeAnimation from "../../components/ui/FadeAnimation";
 
 const SizeSheet = () => {
   const { isSizeSheetOpen, closeSizeSheet, selectedProduct, addToCart } =

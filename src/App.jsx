@@ -5,9 +5,9 @@ import Footer from "./components/layout/Footer";
 import Home from "./pages/home";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop.jsx";
-import Cart from "./components/layout/cart";
-import SizeSheet from "./components/layout/cart/SizeSheet.jsx";
-import CheckoutSheet from "./components/layout/cart/CheckoutSheet.jsx";
+import Cart from "./features/cart";
+import SizeSheet from "./features/cart/SizeSheet.jsx";
+import CheckoutSheet from "./features/cart/CheckoutSheet.jsx";
 import MobileMenu from "./components/layout/MobileMenu.jsx";
 
 const App = () => {

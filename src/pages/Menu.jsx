@@ -1,44 +1,73 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FadeAnimation from "../components/ui/FadeAnimation";
-
-import data from "../data/products.json";
-import { Heart, ShoppingCart } from "lucide-react";
 import Button from "../components/ui/Button";
-import { useStore } from "../store/useStore";
+import Product from "../components/ui/Product";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../services/firebase";
 
 const Menu = () => {
-  const { openSizeSheet, toggleFav, favItems = [] } = useStore();
+  const [mainCategories, setMainCategories] = useState([]);
+  const [subCategories, setSubCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const [activeMenu, setActiveMenu] = useState(
-    data.mainCategories[0]?.id || "oriental",
-  );
+  useEffect(() => {
+    const unsubProducts = onSnapshot(collection(db, "products"), (snap) => {
+      setProducts(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
+    });
 
-  const [activeTab, setActiveTab] = useState(
-    data.subCategories[0]?.id || "kunafa",
-  );
+    const unsubMain = onSnapshot(collection(db, "mainCategories"), (snap) => {
+      setMainCategories(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
+    });
 
-  const filteredSubCatigories = data.subCategories.filter((sub) => {
+    const unsubSub = onSnapshot(collection(db, "subCategories"), (snap) => {
+      setSubCategories(snap.docs.map((d) => ({ id: d.id, ...d.data() })));
+      setLoading(false);
+    });
+
+    return () => {
+      unsubProducts();
+      unsubMain();
+      unsubSub();
+    };
+  }, []);
+
+  const [activeMenu, setActiveMenu] = useState(() => {
+    return mainCategories[0]?.id || "oriental";
+  });
+
+  const [activeSub, setActiveSub] = useState(() => {
+    return subCategories[0]?.id || "kunafa";
+  });
+
+  const filteredSubCategories = subCategories.filter((sub) => {
     return sub.mainCategoryId === activeMenu;
   });
 
-  const filteredProducts = data.products.filter((product) => {
-    return product.subCategoryId === activeTab;
+  const filteredProducts = products.filter((product) => {
+    return product.subCategoryId === activeSub;
   });
 
   const handleMainCategoryChange = (mainCatId) => {
     setActiveMenu(mainCatId);
 
-    const firstSub = data.subCategories.find(
+    const firstSub = subCategories.find(
       (sub) => sub.mainCategoryId === mainCatId,
     );
 
     if (firstSub) {
-      setActiveTab(firstSub.id);
+      setActiveSub(firstSub.id);
     } else {
-      const fallbackSub = data.subCategories[0];
-      if (fallbackSub) setActiveTab(fallbackSub.id);
+      const fallbackSub = subCategories[0];
+      if (fallbackSub) setActiveSub(fallbackSub.id);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="py-20 text-center text-white">جاري تحميل المنيو...</div>
+    );
+  }
 
   return (
     <section className="on-ink" id="menu">
@@ -51,12 +80,12 @@ const Menu = () => {
           </p>
         </FadeAnimation>
 
-        <FadeAnimation className="tabs">
-          {data.mainCategories.map((mainCat) => {
+        <FadeAnimation className="main-tabs">
+          {mainCategories.map((mainCat) => {
             return (
               <Button
                 key={mainCat.id}
-                className={`tab-btn ${mainCat.id === activeMenu ? "active" : ""}`}
+                className={`main-tab-btn border border-amber-100 bg-amber-300 ${mainCat.id === activeMenu ? "active" : ""}`}
                 onClick={() => {
                   handleMainCategoryChange(mainCat.id);
                 }}
@@ -68,12 +97,12 @@ const Menu = () => {
         </FadeAnimation>
 
         <FadeAnimation className="tabs">
-          {filteredSubCatigories.map((subCat) => {
+          {filteredSubCategories.map((subCat) => {
             return (
               <Button
                 key={subCat.id}
-                className={`tab-btn ${subCat.id === activeTab ? "active" : ""}`}
-                onClick={() => setActiveTab(subCat.id)}
+                className={`tab-btn ${subCat.id === activeSub ? "active" : ""}`}
+                onClick={() => setActiveSub(subCat.id)}
               >
                 {subCat.name}
               </Button>
@@ -82,52 +111,9 @@ const Menu = () => {
         </FadeAnimation>
 
         <div className="menu-list" id="menuGrid">
-          {filteredProducts.map((p) => {
-            const isFav = (favItems || []).some(
-              (item) => String(item.id) === String(p.id),
-            );
-
-            return (
-              <div key={p.id} className="menu-row show">
-                <div className="row-media">
-                  {p.image && <img src={p.image} alt={p.name} loading="lazy" />}
-                </div>
-
-                <div className="row-main">
-                  <div className="row-heading">
-                    <h3 className="row-title">{p.name}</h3>
-                    {p.tag && <span className="row-tag">{p.tag}</span>}
-                  </div>
-                  {p.desc && <p className="row-desc">{p.desc}</p>}
-                </div>
-
-                <div className="row-side">
-                  <span className="row-price">
-                    {p.prices[0].price}
-                    <small>ج.م</small>
-                  </span>
-
-                  <div className="row-actions">
-                    <Button
-                      className={`icon-sm fav-btn ${isFav ? "active" : ""}`}
-                      onClick={() => toggleFav(p)}
-                      aria-label="أضف للمفضلة"
-                    >
-                      <Heart />
-                    </Button>
-
-                    <Button
-                      className="icon-sm cart-btn"
-                      aria-label="أضف للسلة"
-                      onClick={() => openSizeSheet(p)}
-                    >
-                      <ShoppingCart />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {filteredProducts.map((p) => (
+            <Product key={p.id} p={p} />
+          ))}
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "../../ui/Button";
-import { useStore } from "../../../store/useStore";
-import FadeAnimation from "../../ui/FadeAnimation";
+import Button from "../../components/ui/Button";
+import { useStore } from "../../store/useStore";
+import FadeAnimation from "../../components/ui/FadeAnimation";
 import { z } from "zod";
 
 const CheckoutSheet = () => {

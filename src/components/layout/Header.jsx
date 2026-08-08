@@ -1,18 +1,17 @@
-import Button from "../ui/Button";
-import logo from "../../assets/images/logo.png";
-import { Menu } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-
-import { ShoppingCart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useStore } from "../../store/useStore";
 
-const Header = () => {
-  const { openCart, toggleMenu } = useStore();
+import Button from "../ui/Button";
+import logo from "../../assets/images/logo.png";
 
-  const count = useStore(
-    (state) =>
-      state.cartItems.reduce((total, item) => total + item.quantity, 0) || 0,
+import { Link, useLocation } from "react-router-dom";
+import { Menu, ShoppingCart } from "lucide-react";
+
+const Header = () => {
+  const { openCart, toggleMenu, isCartOpen } = useStore();
+
+  const count = useStore((state) =>
+    state.cartItems.reduce((total, item) => total + item.quantity, 0),
   );
 
   const location = useLocation();
@@ -31,7 +30,6 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -52,6 +50,7 @@ const Header = () => {
             <>
               <a href="#heritage">إرثنا</a>
               <a href="#signature">طبقنا المميز</a>
+              <a href="#menu">الأكثر مبيعا</a>
               <a href="#contact">تواصل معنا</a>
               <Link to="/menu">المنيو</Link>
             </>
@@ -60,7 +59,7 @@ const Header = () => {
 
         <div className="nav-actions">
           <Button
-            className="icon-btn"
+            className={`icon-btn ${isCartOpen ? "active" : ""}`}
             id="cartBtn"
             aria-label="سلة الطلبات"
             onClick={openCart}
