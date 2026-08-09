@@ -10,12 +10,16 @@ export const useStore = create(
       selectedProduct: null,
       isMenuOpen: false,
       isCartOpen: false,
+      isFavListOpen: false,
       isSizeSheetOpen: false,
       isCheckoutSheetOpen: false,
 
       toggleMenu: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
       closeMenu: () => set({ isMenuOpen: false }),
       openMenu: () => set({ isMenuOpen: true }),
+
+      openFavList: () => set({ isFavListOpen: true }),
+      closeFavList: () => set({ isFavListOpen: false }),
 
       openCart: () => set({ isCartOpen: true }),
       closeCart: () => set({ isCartOpen: false }),

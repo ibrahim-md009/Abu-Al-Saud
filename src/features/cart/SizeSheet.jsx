@@ -1,7 +1,6 @@
 import { useStore } from "../../store/useStore";
 import Button from "../../components/ui/Button";
-import FadeAnimation from "../../components/ui/FadeAnimation";
-
+import SheetAnimation from "../../components/ui/SheetAnimation";
 const SizeSheet = () => {
   const { isSizeSheetOpen, closeSizeSheet, selectedProduct, addToCart } =
     useStore();
@@ -14,7 +13,7 @@ const SizeSheet = () => {
     <>
       <div className="overlay show" id="overlay" onClick={closeSizeSheet}></div>
 
-      <FadeAnimation
+      <SheetAnimation
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="sheet"
         id="sizeSheet"
@@ -57,7 +56,7 @@ const SizeSheet = () => {
             );
           })}
         </div>
-      </FadeAnimation>
+      </SheetAnimation>
     </>
   );
 };

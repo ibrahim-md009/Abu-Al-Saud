@@ -5,7 +5,7 @@ import Button from "../ui/Button";
 import FacebookIcon from "../../assets/icons/FacebookIcon";
 import InstagramIcon from "../../assets/icons/InstagramIcon";
 import WhatsappIcon from "../../assets/icons/WhatsappIcon";
-import FavList from "../../features/favList";
+import FavList from "../layout/FavList";
 
 const NAV_LINKS = [
   { href: "/", label: "الرئيسية" },
@@ -70,6 +70,7 @@ const MobileMenu = () => {
           </nav>
 
           <div className="drawer-divider"></div>
+          <h4 className="drawer-subtitle">المفضلة</h4>
           <FavList />
           <div className="drawer-divider mt-5"></div>
 

@@ -42,7 +42,7 @@ const Hirtage = () => {
               <span className="tl-year">٢٠٢٥</span>
               <span className="tl-text">
                 افتتاح أول فرع خارج فلسطين في جمهورية مصر العربية كرمز للإصرار
-                وتجديد للنجاح بعد حرب عام 2023م.
+                وتجديد للنجاح.
               </span>
             </div>
           </div>

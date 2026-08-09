@@ -1,5 +1,5 @@
 import Button from "../../components/ui/Button";
-import FadeAnimation from "../../components/ui/FadeAnimation";
+import SheetAnimation from "../../components/ui/SheetAnimation";
 import { useStore } from "../../store/useStore";
 import CartBody from "./CartBody";
 
@@ -17,7 +17,7 @@ const Cart = () => {
     <>
       <div className="overlay show" id="overlay" onClick={closeCart}></div>
 
-      <FadeAnimation
+      <SheetAnimation
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="sheet cart-sheet"
         id="cartDrawer"
@@ -51,7 +51,7 @@ const Cart = () => {
             </Button>
           </div>
         )}
-      </FadeAnimation>
+      </SheetAnimation>
     </>
   );
 };

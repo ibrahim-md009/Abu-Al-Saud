@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useStore } from "../../store/useStore";
-import FavList from "../../features/favList";
 import Button from "../ui/Button";
 import logo from "../../assets/images/logo.png";
-import FadeAnimation from "../ui/FadeAnimation";
 import { Link } from "react-router-dom";
 import { Menu, ShoppingCart, Heart } from "lucide-react";
 
@@ -14,7 +12,7 @@ const Header = () => {
     state.cartItems.reduce((total, item) => total + item.quantity, 0),
   );
 
-  const [isFavOpen, setIsFavOpen] = useState(false);
+  const { openFavList, isFavListOpen } = useStore();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -72,28 +70,13 @@ const Header = () => {
               </span>
             )}
           </Button>
-          <>
-            <Button
-              className={`icon-sm fav-btn fav-list`}
-              aria-label="أضف للمفضلة"
-              onClick={() => setIsFavOpen(true)}
-            >
-              <Heart />
-            </Button>
-
-            {isFavOpen && (
-              <FadeAnimation
-                initial={{ opacity: 0, x: -34 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                // className="fixed top-0 left-0 z-50 h-full w-80 bg-white p-4 shadow-xl"
-                className="drawer drawer-left p-3"
-              >
-                <button onClick={() => setIsFavOpen(false)}>×</button>
-                <FavList />
-              </FadeAnimation>
-            )}
-          </>
+          <Button
+            className={`icon-btn fav-btn fav-list ${isFavListOpen ? "active" : ""}`}
+            aria-label="أضف للمفضلة"
+            onClick={openFavList}
+          >
+            <Heart />
+          </Button>
 
           <Button
             className="menu-toggle"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../../components/ui/Button";
 import { useStore } from "../../store/useStore";
-import FadeAnimation from "../../components/ui/FadeAnimation";
+import SheetAnimation from "../../components/ui/SheetAnimation";
 import { z } from "zod";
 
 const CheckoutSheet = () => {
@@ -125,7 +125,7 @@ const CheckoutSheet = () => {
         onClick={closeCheckoutSheet}
       ></div>
 
-      <FadeAnimation className="sheet checkout-sheet" id="checkoutSheet">
+      <SheetAnimation className="sheet checkout-sheet" id="checkoutSheet">
         <div className="sheet-handle"></div>
         <div className="sheet-head">
           <h4 className="sheet-title">معلومات التوصيل</h4>
@@ -187,7 +187,7 @@ const CheckoutSheet = () => {
             <span className="cta-label">إرسال الطلب عبر واتساب</span>
           </Button>
         </div>
-      </FadeAnimation>
+      </SheetAnimation>
     </>
   );
 };

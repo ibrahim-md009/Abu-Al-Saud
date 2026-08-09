@@ -1261,8 +1261,8 @@ footer .container {
   padding: 3px 6px;
 }
 .qty-stepper button {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: none;
   border: none;
   color: var(--gold-soft);
@@ -1274,8 +1274,8 @@ footer .container {
   font-size: 0.85rem;
 }
 .row-remove {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid var(--line-onink);
   background: none;

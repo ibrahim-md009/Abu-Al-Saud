@@ -1,69 +1,33 @@
 import { useStore } from "../../store/useStore";
-import { ShoppingCart } from "lucide-react";
+import FavList from "../../components/layout/FavList";
 import Button from "../../components/ui/Button";
+import SheetAnimation from "../../components/ui/SheetAnimation";
 
-const FavList = () => {
-  const { openSizeSheet, toggleFav, favItems, cartItems } = useStore();
+const Favorites = () => {
+  const { isFavListOpen, closeFavList } = useStore();
+
+  if (!isFavListOpen) return null;
 
   return (
     <>
-      <h4 className="drawer-subtitle">المفضلة</h4>
-      <div id="favList">
-        {favItems.length > 0 ? (
-          favItems.map((item) => {
-            const productInCart = cartItems.filter(
-              (c) => String(c.id) === String(item.id),
-            );
+      <div className="overlay show" onClick={closeFavList}></div>
 
-            const productCount = productInCart.reduce(
-              (total, c) => total + (c.quantity || 0),
-              0,
-            );
+      <SheetAnimation
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="sheet fav-sheet"
+      >
+        <div className="sheet-handle"></div>
+        <div className="drawer-head">
+          <h4 className="drawer-subtitle">المفضلة</h4>
+          <Button className="drawer-close" onClick={closeFavList}>
+            ×
+          </Button>
+        </div>
 
-            const isExisted = productCount > 0;
-
-            return (
-              <div key={item.id} className="cart-row">
-                <div className="row-info flex flex-col">
-                  <span className="row-name">{item.name}</span>
-                  <span className="row-price-sm">
-                    {item.prices?.[0]?.price || item.price} ج.م
-                  </span>
-                </div>
-
-                <div className="row-actions-sm flex items-center gap-2">
-                  <Button
-                    className={`icon-sm cart-btn icon-btn ${isExisted ? "active" : ""}`}
-                    aria-label="أضف للسلة"
-                    onClick={() => openSizeSheet(item)}
-                  >
-                    <ShoppingCart size={16} />
-                    {productCount > 0 && (
-                      <span className="badge" id="cartBadge">
-                        {productCount}
-                      </span>
-                    )}
-                  </Button>
-
-                  <Button
-                    className="row-remove"
-                    aria-label="حذف من المفضلة"
-                    onClick={() => toggleFav(item)}
-                  >
-                    ×
-                  </Button>
-                </div>
-              </div>
-            );
-          })
-        ) : (
-          <p className="py-4 text-center text-sm text-gray-400">
-            لا توجد عناصر في المفضلة بعد.
-          </p>
-        )}
-      </div>
+        <FavList />
+      </SheetAnimation>
     </>
   );
 };
 
-export default FavList;
+export default Favorites;

@@ -12,6 +12,7 @@ import SizeSheet from "./features/cart/SizeSheet.jsx";
 import CheckoutSheet from "./features/cart/CheckoutSheet.jsx";
 import MobileMenu from "./components/layout/MobileMenu.jsx";
 import { Toaster } from "react-hot-toast";
+import Favorites from "./features/favList/index.jsx";
 
 const App = () => {
   const initListeners = useData((state) => state.initListeners);
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/menu" element={<Menu />} />
       </Routes>
       <Cart />
+      <Favorites />
       <SizeSheet />
       <CheckoutSheet />
       <Footer />
