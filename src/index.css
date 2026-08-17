@@ -773,7 +773,8 @@ section {
   font-weight: 700;
   font-size: clamp(8rem, 26vw, 20rem);
   color: transparent;
-  -webkit-text-stroke: 1px var(--line-oncream);
+  /* -webkit-text-stroke: 1px var(--line-oncream); */
+  -webkit-text-stroke: 1px rgba(36, 22, 9, 0.28);
   white-space: nowrap;
   z-index: 0;
   pointer-events: none;
