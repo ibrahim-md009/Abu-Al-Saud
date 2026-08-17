@@ -1,5 +1,5 @@
 import Hero from "./Hero";
-import Hirtage from "./Hirtage";
+import Heritage from "./Heritage";
 import BestSeller from "./BestSeller";
 import Signature from "./Signature";
 import Why from "./Why";
@@ -11,7 +11,7 @@ const index = () => {
     <>
       <Hero />
       <Marquee />
-      <Hirtage />
+      <Heritage />
       <BestSeller />
       <Signature />
       <Why />

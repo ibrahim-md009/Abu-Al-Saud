@@ -1,6 +1,27 @@
 import FadeAnimation from "../../components/ui/FadeAnimation";
 import { ArrowUp, CircleCheck, CirclePlus } from "lucide-react";
 
+const whyItems = [
+  {
+    id: 1,
+    icon: CircleCheck,
+    title: "مكونات أصلية",
+    description: "سمنة بلدي وجبنة عكاوي طازجة، بلا بدائل ولا اختصارات.",
+  },
+  {
+    id: 2,
+    icon: CirclePlus,
+    title: "إرث منذ ١٨٩٦",
+    description: "وصفات توارثتها الأجيال دون أن يتغيّر فيها طعم الأصالة.",
+  },
+  {
+    id: 3,
+    icon: ArrowUp,
+    title: "طازج يومياً",
+    description: "كل صنف يُحضَّر يومياً ليصلك في أفضل حالاته.",
+  },
+];
+
 const Why = () => {
   return (
     <section className="on-ink why">
@@ -11,23 +32,16 @@ const Why = () => {
         </FadeAnimation>
 
         <div className="why-grid">
-          <FadeAnimation className="why-item">
-            <CircleCheck className="icon" />
-            <h4>مكونات أصلية</h4>
-            <p>سمنة بلدي وجبنة عكاوي طازجة، بلا بدائل ولا اختصارات.</p>
-          </FadeAnimation>
-
-          <FadeAnimation className="why-item">
-            <CirclePlus className="icon" />
-            <h4>إرث منذ ١٨٩٦</h4>
-            <p>وصفات توارثتها الأجيال دون أن يتغيّر فيها طعم الأصالة.</p>
-          </FadeAnimation>
-
-          <FadeAnimation className="why-item">
-            <ArrowUp className="icon" />
-            <h4>طازج يومياً</h4>
-            <p>كل صنف يُحضَّر يومياً ليصلك في أفضل حالاته.</p>
-          </FadeAnimation>
+          {whyItems.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <FadeAnimation className="why-item" key={item.id}>
+                <IconComponent className="icon" />
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+              </FadeAnimation>
+            );
+          })}
         </div>
       </div>
     </section>

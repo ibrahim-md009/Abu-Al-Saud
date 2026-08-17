@@ -1,6 +1,7 @@
 import { useStore } from "../../store/useStore";
 import Button from "../../components/ui/Button";
 import SheetAnimation from "../../components/ui/SheetAnimation";
+
 const SizeSheet = () => {
   const { isSizeSheetOpen, closeSizeSheet, selectedProduct, addToCart } =
     useStore();
@@ -19,6 +20,7 @@ const SizeSheet = () => {
         id="sizeSheet"
       >
         <div className="sheet-handle"></div>
+
         <div className="sheet-head">
           <h4 className="sheet-title" id="sheetTitle">
             اختر الكمية

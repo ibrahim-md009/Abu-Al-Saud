@@ -4,6 +4,7 @@ import Button from "../ui/Button";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { Menu, ShoppingCart, Heart } from "lucide-react";
+import navLinks from "../../data/navLinks";
 
 const Header = () => {
   const { openCart, toggleMenu, isCartOpen } = useStore();
@@ -29,15 +30,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const NAV_LINKS = [
-    { href: "/", label: "الرئيسية" },
-    { href: "/#heritage", label: "إرثنا" },
-    { href: "/#signature", label: "طبقنا المميز" },
-    { href: "/#menu", label: "الأكثر مبيعا" },
-    { href: "/#contact", label: "تواصل معنا" },
-    { href: "/menu", label: "المنيو" },
-  ];
-
   return (
     <header id="siteHeader" className={scrolled ? "scrolled" : ""}>
       <div className="nav-inner container">
@@ -49,7 +41,7 @@ const Header = () => {
         </div>
 
         <nav className="links">
-          {NAV_LINKS.map((link) => (
+          {navLinks.map((link) => (
             <Link key={link.href} to={link.href}>
               {link.label}
             </Link>

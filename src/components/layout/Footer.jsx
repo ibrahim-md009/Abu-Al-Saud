@@ -1,22 +1,6 @@
-import FacebookIcon from "../../assets/icons/FacebookIcon";
-import InstagramIcon from "../../assets/icons/InstagramIcon";
 import logo from "../../assets/images/logo.png";
 import FadeAnimation from "../../components/ui/FadeAnimation";
-
-const SOCIAL_LINKS = [
-  {
-    id: "facebook",
-    label: "فيسبوك",
-    href: "https://www.facebook.com/abusaudsweets",
-    Icon: FacebookIcon,
-  },
-  {
-    id: "instagram",
-    label: "إنستغرام",
-    href: "https://www.instagram.com/abusaudsweets/",
-    Icon: InstagramIcon,
-  },
-];
+import socialLinks from "../../data/socialLinks";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -40,7 +24,7 @@ const Footer = () => {
           </a>
         </FadeAnimation>
         <FadeAnimation className="social justify-center">
-          {SOCIAL_LINKS.map(({ id, label, href, Icon }) => (
+          {socialLinks.slice(0, 2).map(({ id, label, href, Icon }) => (
             <a
               key={id}
               href={href}
