@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { useData } from "./store/useData.js";
 import Preloader from "./components/layout/Preloader";
 import Header from "./components/layout/Header";
 import MobileMenu from "./components/layout/MobileMenu.jsx";
 import Home from "./pages/home";
-import Menu from "./pages/Menu";
-import SizeSheet from "./features/cart/SizeSheet.jsx";
-import Cart from "./features/cart";
-import CheckoutSheet from "./features/cart/CheckoutSheet.jsx";
-import Favorites from "./features/favList/index.jsx";
+
+const Menu = lazy(() => import("./pages/Menu.jsx"));
+const SizeSheet = lazy(() => import("./features/cart/SizeSheet.jsx"));
+const Cart = lazy(() => import("./features/cart"));
+const CheckoutSheet = lazy(() => import("./features/cart/CheckoutSheet.jsx"));
+const Favorites = lazy(() => import("./features/favList/index.jsx"));
+
 import Footer from "./components/layout/Footer";
 import ScrollToTop from "./components/layout/ScrollToTop.jsx";
 import { Toaster } from "react-hot-toast";
@@ -24,19 +27,27 @@ const App = () => {
 
   return (
     <>
-      <Preloader />
-      <Header />
-      <MobileMenu />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-      </Routes>
-      <Cart />
-      <Favorites />
-      <SizeSheet />
-      <CheckoutSheet />
+      <Suspense fallback={null}>
+        <Preloader />
+
+        <Header />
+
+        <MobileMenu />
+
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+        </Routes>
+
+        <Cart />
+        <Favorites />
+        <SizeSheet />
+        <CheckoutSheet />
+      </Suspense>
+
       <Footer />
+
       <Toaster position="top-center" />
     </>
   );
